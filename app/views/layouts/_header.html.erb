@@ -1,9 +1,14 @@
 <header>
   <nav class="round">
     <ul>
-      <li><%= link_to "Users", users_path %></li>
+      <li><%= link_to "Home", root_path %></li>
       <li><%= link_to "Settings", "#" %></li>
-      <li><%= link_to "Profile", "#" %></li>
+      <li><%= link_to "Profile", current_user %></li>
+      <% if signed_in? %>
+        <li><%= link_to "Sign out", signout_path, :method => :delete %></li>
+      <% else %>
+        <li><%= link_to "Sign in", signin_path %></li>
+      <% end %>
     </ul>
   </nav>
 </header>
