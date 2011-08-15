@@ -3,6 +3,17 @@ require 'spec_helper'
 describe UsersController do
   render_views
 
+  describe "GET 'index'" do
+
+    describe "for non-signed-in user" do
+      it "should deny access" do
+        get :index
+        response.should redirect_to(signin_path)
+        flash[:notice].should =~ /signin/i
+      end
+    end
+  end
+
   describe "GET 'new'" do
 
     before(:each) do
@@ -79,7 +90,5 @@ describe UsersController do
         flash[:success].should =~ /welcome to/i
       end
     end
-
   end
-
 end
