@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
 
   before_save :encrypt_password
 
+  has_many :project
+
   class << self
     def authenticate(email, submitted_password)
       user = find_by_email(email)

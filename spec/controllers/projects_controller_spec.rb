@@ -5,7 +5,7 @@ describe ProjectsController do
   
   before(:each) do
     @user = Factory(:user)
-    @attr = { :name => "Dooer Building" }
+    @attr = { :name => "Dooer Building", :user_id => @user }
   end
 
   describe "GET 'new'" do
@@ -28,21 +28,29 @@ describe ProjectsController do
     describe "failure" do
 
       before(:each) do
-        @attr = { :name => "" }
+        @attr = { :name => "", :user_id => "" }
+      end
+
+      it "should deny non-signed in users" do
+        post :create, :project => @attr
+        response.should redirect_to(signin_path)
       end
 
       it "should not create a project" do
+        test_sign_in(@user)
         lambda do
           post :create, :project => @attr
         end.should_not change(Project, :count)
       end
 
       it "should have the right title" do
+        test_sign_in(@user)
         post :create, :project => @attr
         response.should have_selector('title', :content => "Add project")
       end
 
       it "should render the new page" do
+        test_sign_in(@user)
         post :create, :project => @attr
         response.should render_template('new')
       end
@@ -52,7 +60,7 @@ describe ProjectsController do
 
       before(:each) do
         test_sign_in(@user)
-        @attr = { :name => "Test Project" }
+        @attr = { :name => "Test Project", :user_id => @user }
       end
 
       it "should create a project" do

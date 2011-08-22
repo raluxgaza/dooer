@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  #before_filter :authenticate, :except => [:new, :create]
+  before_filter :authenticate
 
   def new
     @project = Project.new

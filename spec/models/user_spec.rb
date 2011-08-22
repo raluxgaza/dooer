@@ -173,6 +173,17 @@ describe User do
       @user.should be_admin
     end
   end
+
+  describe "relationship" do
+
+    describe "project" do
+
+      it "should respond to project" do
+        user_project = User.new(@attr)
+        user_project.should respond_to(:project)
+      end
+    end
+  end
 end
 
 
