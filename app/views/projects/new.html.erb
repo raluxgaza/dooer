@@ -8,6 +8,8 @@
     <%= f.text_field :name %>
   </div>
 
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+
   <div class="actions">
     <%= f.submit "Add project" %>
   </div>

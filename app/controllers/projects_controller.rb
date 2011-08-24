@@ -1,6 +1,11 @@
 class ProjectsController < ApplicationController
   before_filter :authenticate
 
+  def index
+    @project = Project.find(:all)
+    @title = "All project"
+  end
+
   def new
     @project = Project.new
     @title = "Add project"
