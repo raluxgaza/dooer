@@ -1,4 +1,4 @@
 
 <%= form_for(@project) do |f| %>
-  <h2><%= @project.name %></h2>
+  <h2><%= @project.name %></h2> <%= link_to "Edit", edit_project_path(@project) %>
 <% end %>

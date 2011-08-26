@@ -7,11 +7,8 @@ Factory.define :user do |user|
   user.password_confirmation "password"
 end
 
-Factory.sequence :project do |n|
-  n
-end
-
-Factory.sequence :email do |n|
-  "person-#{n}@example.com"
+Factory.define :project do |project|
+  project.name "Test 1"
+  project.user_id "1"
 end
 
