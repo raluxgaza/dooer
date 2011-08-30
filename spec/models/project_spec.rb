@@ -29,6 +29,14 @@ describe Project do
         user_project.should respond_to(:user)
       end
     end
+
+    describe "task" do
+
+      it "should have many tasks" do
+        project_task = Project.new(@attr)
+        project_task.should respond_to(:task)
+      end
+    end
   end
 end
 
