@@ -123,12 +123,6 @@ describe ProjectsController do
         get :edit, :id => @project
         response.should_not be_success
       end
-
-      it "should have the right title" do
-        test_sign_in(@user)
-        get :edit, :id => @project
-        response.should have_selector('title', :content => "Edit project")
-      end
     end
   end
   

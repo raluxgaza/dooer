@@ -35,8 +35,8 @@ class ProjectsController < ApplicationController
     if @project.update_attributes(params[:project])
       redirect_to project_path(@project), :flash => { :success => "Project updated!" }
     else
-      render 'edit'
       @title = "Edit project"
+      render 'edit'
     end
   end
 

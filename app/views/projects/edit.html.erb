@@ -1,6 +1,6 @@
 <h1>Edit project here</h1>
 
-<% form_for(@project) do |f| %>
+<%= form_for(@project) do |f| %>
   <%= render 'shared/error_messages', :object => f.object %>
   <div class="field">
     <%= f.label :name %>
