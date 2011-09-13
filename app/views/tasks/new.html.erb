@@ -1,0 +1,16 @@
+<h1>Add Task</h1>
+
+<%= form_for(@task) do |f| %>
+
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+    <%= f.date_select :due_date %>
+  </div>
+
+  <%= f.hidden_field :project_id, :value => :id %>
+
+  <div class="actions">
+    <%= f.submit "Add task" %>
+  </div>
+<% end %>
