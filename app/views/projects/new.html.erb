@@ -3,14 +3,13 @@
 <%= form_for(@project) do |f| %>
   <%= render 'shared/error_messages', :object => f.object %>
 
-  <div class="field">
+
+  <div class="form-stacked">
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+
     <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
+    <%= f.text_field :name, :class => "span7"%>
 
-  <%= f.hidden_field :user_id, :value => current_user.id %>
-
-  <div class="actions">
-    <%= f.submit "Add project" %>
+    <%= f.submit "Add project", :class => "btn primary" %>
   </div>
 <% end %>

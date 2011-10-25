@@ -2,12 +2,10 @@
 
 <%= form_for(@project) do |f| %>
   <%= render 'shared/error_messages', :object => f.object %>
-  <div class="field">
+  <div class="form-stacked">
     <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
+    <%= f.text_field :name, :class => "span7" %>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "Update", :class => "btn primary" %>
   </div>
 <% end %>

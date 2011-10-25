@@ -66,4 +66,16 @@ describe TasksController do
     end
   end
 
+  describe "GET 'show'" do
+
+    before(:each) do
+      @attr = { :description => "Building shit", :project_id => 2 }
+    end
+
+    it "should display task" do
+      get :show, :id => @attr
+      response.should be_success
+    end
+  end
+
 end

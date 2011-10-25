@@ -1,5 +1,22 @@
 
 <%= form_for(@project) do |f| %>
-  <h2><%= link_to @project.name, edit_project_path(@project) %></h2> 
-  <%= link_to "Add task", new_task_path %>
+  <h2><%= link_to @project.name, edit_project_path(@project) %></h2>
+  
+  <br /><%= link_to "Add new task", "#{@project.id}/tasks/new", :class => "btn info" %>
+
+  <br /><br />
+  <div class="form-stacked">
+    <ul class="unstyled">
+      <% @task = Task.find(:all, :conditions => ["project_id = ? ", @project.id]) %>
+      <% @task.each do |t| %>
+        <li>
+          <%= check_box_tag('task', 'completed') %>
+          <%= link_to t.description, "#{params[:id]}/tasks/#{t.id}/edit" %>
+          <%= t.due_date.to_date %><br />
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <%= link_to "Back to projects", projects_path, :class => "btn"%>
 <% end %>

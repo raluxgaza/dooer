@@ -9,6 +9,7 @@ end
 
 
 
+
 # == Schema Information
 #
 # Table name: tasks
@@ -19,5 +20,6 @@ end
 #  created_at  :datetime
 #  updated_at  :datetime
 #  project_id  :integer(4)
+#  completed   :boolean(1)
 #
 

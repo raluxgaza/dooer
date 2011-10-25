@@ -1,2 +1,16 @@
-<h1>Tasks#edit</h1>
-<p>Find me in app/views/tasks/edit.html.erb</p>
+<h1>Edit task</h1>
+
+<%= form_for(@task) do |f| %>
+
+  <div class="form-stacked">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+
+    <%= f.label :due_date %>
+    <%= f.text_field :due_date %>
+
+    <%= f.submit "Update", :class => "btn primary" %>
+  </div>
+<% end %>
+
+

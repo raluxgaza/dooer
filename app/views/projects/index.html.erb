@@ -1,5 +1,7 @@
-<h1>View all projects here</h1>
+<h1>Existing projects</h1>
 
 <% @project.each do |proj| %>
   <%= link_to proj.name, project_path(proj) %><br />
 <% end %>
+
+<br /><%= link_to "Add new project", new_project_path, :class => "btn info" %>

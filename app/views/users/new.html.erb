@@ -4,7 +4,5 @@
   <%= render 'shared/error_messages', :object => f.object %>
   <%= render 'fields', :f => f %>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+  <%= f.submit "Sign up", :class => "btn primary actions" %>
 <% end %>
